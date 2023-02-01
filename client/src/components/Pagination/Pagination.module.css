@@ -1,0 +1,31 @@
+
+.pagination {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  width: 1000px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #faf4d9;
+  margin: 2px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.pagination a.active {
+  background-color: #f8c21f;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
