@@ -6,7 +6,7 @@ import Nav from "./components/Nav/Nav";
 import Details from "./components/Details/Details";
 import React, { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllDogs, getByRace, getTemperaments } from "./Redux/actions";
+import { getAllDogs, getByRace, getTemperaments, orderByAlphabet, orderByWeight } from "./Redux/actions";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
@@ -25,7 +25,13 @@ function App() {
   function onSearch(race) {
     dispatch(getByRace(race));
   }
-
+  function filters(name, value){
+    if(name==="Alphabetic"){
+      dispatch(orderByAlphabet(value))
+    }else if (name==="Weight"){
+      dispatch(orderByWeight(value))
+    }
+  }
   return (
     <div className="container">
       {useLocation().pathname === "/" ? null : <Nav allDogs={allDogs} />}
@@ -33,7 +39,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route
           path="/home"
-          element={<Home onSearch={onSearch} dogs={dogs} />}
+          element={<Home onSearch={onSearch} dogs={dogs} filters={filters} />}
         />
         <Route path="/create" element={<Form />} />
 

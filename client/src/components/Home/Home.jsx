@@ -2,11 +2,11 @@ import styles from "./Home.module.css";
 import Page from "../Page/Page";
 import Pagination from "../Pagination/Pagination";
 import SearchBar from "../SearchBar/SearchBar";
-import Filtros from "../Filtros/Filtros";
+import Filters from "../Filters/Filters";
 import React, { useState } from "react";
 
 export default function Home(props) {
-  const { dogs, onSearch } = props;
+  const { dogs, onSearch, filters } = props;
   const [currentPage, setcurrentPage] = useState(1);
   const [dogsPerPage] = useState(8);
   const indexOfLastDog = currentPage * dogsPerPage;
@@ -22,7 +22,7 @@ export default function Home(props) {
         totalDogs={dogs.length}
         paginate={paginate}
       />
-      <Filtros />
+      <Filters filters={filters} />
       <Page dogs={currentDogs} />
     </div>
   );

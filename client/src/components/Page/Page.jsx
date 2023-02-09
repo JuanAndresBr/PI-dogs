@@ -14,7 +14,7 @@ export default function Page({ dogs}) {
               name={dog?.name}
               image={dog?.image}
               temperament={dog?.temperament}
-              weight={dog.weight.imperial ?dog.weight.imperial: dog.weight}
+              weight={ dog.weight}
             />
           
         );

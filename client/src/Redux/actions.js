@@ -3,9 +3,23 @@ import {
   GET_ALL_DOGS,
   GET_BY_RACE,
   GET_TEMPERAMENTS,
+  ORDER_BY_ALPHABET,
+  ORDER_BY_WEIGHT
 } from "./action_type";
 import axios from "axios";
 
+export function orderByAlphabet(value){
+  return{
+    type: ORDER_BY_ALPHABET,
+    payload:value
+  }
+}
+export function orderByWeight(value){
+  return{
+    type: ORDER_BY_WEIGHT,
+    payload:value
+  }
+}
 export function postDog(dog) {
   return function (dispatch) {
     axios
@@ -38,12 +52,12 @@ export function getAllDogs() {
 export function getByRace(race) {
   return async function (dispatch) {
     const result = await axios.get(`http://localhost:3001/dogs?name=${race}`);
-    const data = result.data.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    });
-    console.log(data);
+    const data = result.data
+    //.sort((a, b) => {
+    //   if (a.name < b.name) return -1;
+    //   if (a.name > b.name) return 1;
+    //   return 0;
+    // });
     dispatch({
       type: GET_BY_RACE,
       payload: data,
