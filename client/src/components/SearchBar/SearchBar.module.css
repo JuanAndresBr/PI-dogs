@@ -1,28 +1,38 @@
 .container{
   display: flex;
   margin-left: 20px;
-  justify-content: flex-start;
+  justify-content: center;
+
 }
 .search{
   padding: 0.2em 0.5em;
-  height: 30px;
+  height: 40px;
+  width: 50px;
   border-radius: 8px;
   border: 2px solid white;
-  transition: 0.5s ease;
+  transition: 0.7s ease;
   outline: none;
   margin-right: 20px;
-
+  background-image: url('../../img/busqueda.png');
+  background-repeat: no-repeat;
+  background-position: right 8px bottom 45%;
+  background-size: 20px;
 }
+
 .search:focus, .search:hover{
   border: 2px solid #ffdf0f;
+  width: 500px;
 }
 .button{
   background-color: #ffdf0f ;
   border: 0px;
+  font-size: 15px;
   border-radius: 5px;
-  width: 70px;
-  height: 30px;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
 }
+
 .button:hover{
   background-color: #ffba4b;
   font-weight: bold;

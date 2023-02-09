@@ -1,31 +1,37 @@
-
 .pagination {
   display: flex;
   align-self: center;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
-  width: 1000px;
+  transition: 0.3s ease;
 }
-
-.pagination a {
+.pagination p {
+  cursor: pointer;
   color: black;
   float: left;
   padding: 8px 16px;
   text-decoration: none;
   background-color: #faf4d9;
-  margin: 2px;
+
+  height: 20px;
   border-radius: 5px;
   font-weight: bold;
 }
 
-.pagination a.active {
-  background-color: #f8c21f;
-  color: white;
+.pagination p:hover {
+  background-color: rgb(220, 149, 104);
   border-radius: 5px;
+  transition: 0.5s ease;
 }
 
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
+.pagination h1 {
+  align-self: center;
+  font-size: 25px;
+  margin: 5px;
+}
+.pagination input {
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
 }

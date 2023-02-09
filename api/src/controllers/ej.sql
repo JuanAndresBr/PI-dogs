@@ -1,0 +1,1 @@
+select nombre from temperaments join racetemperament  on temperaments.id=racetemperament."temperamentId" join races  on races.id=racetemperament."raceId" where races.id=265;

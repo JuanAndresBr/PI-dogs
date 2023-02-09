@@ -1,9 +1,8 @@
 import styles from "./Page.module.css";
 import Card from "../Card/Card";
-export default function Page({ dogs, loading }) {
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+import img from "../../img/51LJ.gif"
+export default function Page({ dogs}) {
+
   return (
     <div className={styles.container}>
       {dogs.map((dog) => {
@@ -11,6 +10,7 @@ export default function Page({ dogs, loading }) {
 
             <Card
               key={dog?.id}
+              id={dog.id}
               name={dog?.name}
               image={dog?.image}
               temperament={dog?.temperament}

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color:  rgb(183, 65, 7, 0.9);
-  width: 100%;
+  width: auto;
   height: 70px;
   border: 2px solid black;
   border-radius: 5px;
@@ -27,6 +27,7 @@
   width: 70px;
   height: 30px;
   margin-right: 50px;
+  cursor: pointer;
 }
 .button:hover{
   background-color: #ffba4b;

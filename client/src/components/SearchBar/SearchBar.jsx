@@ -1,13 +1,25 @@
 import styles from "./SearchBar.module.css";
+import React, { useState } from "react";
 
-export default function About() {
+export default function SearchBar(props) {
+  const { onSearch } = props;
+  const [race, setRace]=useState("");
+  const handleInputChange=(e)=>{
+    setRace(e.target.value);
+  }
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={(e) => {
+        e.preventDefault()
+        onSearch(race)
+        setRace("")
+      }}>
         <input
           className={styles.search}
           type="search"
-          placeholder="Type race"
+          onChange={handleInputChange}
+          value={race}
+          
           // list="options"
           // autoComplete="off"
         ></input>
@@ -15,7 +27,7 @@ export default function About() {
           <option>#1</option>
         </datalist>
         <button className={styles.button} type="submit">
-        <a className={styles.link} href="#">Search</a>
+            Search
         </button>
       </form>
     </div>

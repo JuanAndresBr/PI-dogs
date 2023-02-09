@@ -1,0 +1,24 @@
+.container{
+  display: flex;
+  background-color: aqua;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 1000px;
+  margin: 90px 200px 200px 200px;
+  background-color: rgb(247, 212, 172, 0.9);
+}
+.texto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.container img{
+  display: flex;
+  margin: 20px;
+  width: 50%;
+  height: auto;
+  border-radius: 20px;
+
+}

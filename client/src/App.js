@@ -1,20 +1,43 @@
 import "./App.css";
 import Home from "./components/Home/Home.jsx";
-import Login from "./components/Login/Login"; 
+import Login from "./components/Login/Login";
 import Form from "./components/Form/Form";
 import Nav from "./components/Nav/Nav";
-
+import Details from "./components/Details/Details";
+import React, { useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllDogs, getByRace, getTemperaments } from "./Redux/actions";
 import { Routes, Route, useLocation } from "react-router-dom";
+
 function App() {
+  const dispatch = useDispatch();
+  const dogs = useSelector((s) => s.allDogs);
+
+  useEffect(() => {
+    dispatch(getTemperaments());
+    allDogs();
+  }, []);
+
+  function allDogs() {
+    dispatch(getAllDogs());
+  }
+
+  function onSearch(race) {
+    dispatch(getByRace(race));
+  }
 
   return (
-    <div>
-      {useLocation().pathname==="/"? null: <Nav/>
-}
+    <div className="container">
+      {useLocation().pathname === "/" ? null : <Nav allDogs={allDogs} />}
       <Routes>
-        <Route path="/" element={<Login />}/>
-        <Route path="/home" element={<Home />}/>
-        <Route path="/create" element={<Form/>}/>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/home"
+          element={<Home onSearch={onSearch} dogs={dogs} />}
+        />
+        <Route path="/create" element={<Form />} />
+
+        <Route path="/details/:detailID" element={<Details />} />
       </Routes>
     </div>
   );
