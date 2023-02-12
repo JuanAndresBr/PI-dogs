@@ -1,4 +1,6 @@
 .container{
   display: flex;
   flex-direction: column;
+  background-image: url("./img/fondo.jpg");
+  background-size : cover;
 }

@@ -9,18 +9,19 @@ export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
   for (let i = 1; i <= Math.ceil(totalDogs / dogsPerPage); i++) {
     pageNumbers.push(i);
   }
-  useEffect(() => {
-    setInput(1);
-    setNumPage(1);
-    paginate(1);
-  }, [totalDogs]);
+  // useEffect(() => {
+  //   setInput(1);
+  //   setNumPage(1);
+  //   paginate(1);
+  // }, [totalDogs]);
   const handleInputChange = (e) => {
-    if (e.target.value > 0 && e.target.value <= pageNumbers.length) {
+    e.preventDefault()
+    if (e.target.value >= 0 && e.target.value <= pageNumbers.length) {
       setInput(e.target.value);
       setNumPage(e.target.value);
       paginate(e.target.value);
-    } else {
-      setInput(e.target.value);
+    } else  {
+      setInput(1);
       setNumPage(1);
       paginate(1);
     }
@@ -32,14 +33,22 @@ export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
       setNumPage(num);
       setInput(num);
       paginate(num);
+    }else{
+      setNumPage(pageNumbers.length);
+      setInput(pageNumbers.length);
+      paginate(pageNumbers.length);
     }
   }
   function handleForward() {
-    if (numPage + 1 <= pageNumbers.length) {
-      const num = numPage + 1;
+    if (Number(numPage) + 1 <=pageNumbers.length) {
+      const num = Number(numPage) + 1;
       setNumPage(num);
       setInput(num);
       paginate(num);
+    }else{
+      setNumPage(1);
+      setInput(1);
+      paginate(1);
     }
   }
   return (
@@ -51,8 +60,6 @@ export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
         }}
         value={input}
       ></input>
-      {/* <h1>/{pageNumbers.length}</h1> */}
-
       <input value={"/" + pageNumbers.length} readOnly></input>
       <p onClick={handleForward}>&raquo;</p>
     </div>

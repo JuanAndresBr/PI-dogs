@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Form() {
   const dispatch = useDispatch();
-  const temperaments = useSelector((s) => s.temperaments);
+  const temperaments = useSelector((s) => s.allTemperaments);
   const [selects, setSelects] = useState([]);
   const [dogTemperaments, setDogTemperaments] = useState({ values: [] });
   const [dogData, setDogData] = useState({
@@ -123,36 +123,11 @@ export default function Form() {
       window.alert("error: " + error);
     }
   }
-  // useEffect(() => {
-  //   async function getTemperaments() {
-  //     const data = await axios.get("http://localhost:3001/temperaments");
-  //     const temperaments = data.data;
-  //     setTemperaments(temperaments);
-  //   }
-  //   getTemperaments();
-  // }, []);
-  useEffect(() => {
-    setSelects([
-      <select
-        onClick={(e) => handleSelectsClick(e)}
-        key="0"
-        defaultValue={"DEFAULT"}
-        name="0"
-        className={styles.select}
-      >
-        <option disabled value="DEFAULT">
-          Select temperament
-        </option>
-        {temperaments.map((e) => (
-          <option key={e.id} value={e.id}>
-            {e.nombre}
-          </option>
-        ))}
-      </select>,
-    ]);
-  }, [temperaments]);
+
   return (
     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+      <h1>CREATE RACE</h1>
+      <hr></hr>
       <div>
         <span>Name</span>
         <input
@@ -241,6 +216,7 @@ export default function Form() {
       <button className={styles.button} type="submit">
         Create race
       </button>
+      <hr></hr>
     </form>
   );
 }

@@ -19,13 +19,8 @@ export default function SearchBar(props) {
           type="search"
           onChange={handleInputChange}
           value={race}
-          
-          // list="options"
-          // autoComplete="off"
+          name="race"
         ></input>
-        <datalist id="options">
-          <option>#1</option>
-        </datalist>
         <button className={styles.button} type="submit">
             Search
         </button>

@@ -17,18 +17,6 @@ const PostDog = async function (req, res) {
         }
       );
       newRace.setTemperaments(temperaments)
-
-      // temperaments.forEach(async (e)=>{
-      //   await Race.create({
-      //     where:{id:id},
-      //     temperaments: []
-      //   })
-      // const idTemperament = await Temperament.findAll({where:{nombre: e}, attributes:["id"]})
-      // await racetemperament.create({
-      //   raceId: id,
-      //   temperamentId:idTemperament[0].dataValues.id,
-      // })
-      // })
       res.status(201).json(newRace);
     } else {
       res.status(500).json("Falta algún dato");

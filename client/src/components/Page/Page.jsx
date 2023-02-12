@@ -1,6 +1,5 @@
 import styles from "./Page.module.css";
 import Card from "../Card/Card";
-import img from "../../img/51LJ.gif"
 export default function Page({ dogs}) {
 
   return (

@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #503101;
+  height: 680px;
+  width: 100%;
+  background-color: rgb(255, 195, 116);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 200px;
+  width: 150px;
+  background-color: rgb(255, 237, 214);
+  border-radius: 10px;
+  scroll-snap-align: start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.section section {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+
+.container span {
+  font-size: 23px;
+}
+.section span {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.section div {
+  display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  width: 15px;
+  margin: 0px;
+}
+.searchTemp {
+  width: 100%;
+  margin: 0px;
+  font-size: 12px;
+}

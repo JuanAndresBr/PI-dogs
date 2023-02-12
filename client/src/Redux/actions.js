@@ -4,21 +4,60 @@ import {
   GET_BY_RACE,
   GET_TEMPERAMENTS,
   ORDER_BY_ALPHABET,
-  ORDER_BY_WEIGHT
+  ORDER_BY_WEIGHT,
+  FILTER_BY_RACE,
+  FILTER_BY_TEMPERAMENT,
+  SEARCH_TEMPERAMENT,
+  SEARCH_RACE,
+  DETAILS,
 } from "./action_type";
 import axios from "axios";
 
-export function orderByAlphabet(value){
-  return{
-    type: ORDER_BY_ALPHABET,
-    payload:value
-  }
+export function details(detailID) {
+  return async function (dispatch) {
+    const result = await axios.get(`http://localhost:3001/dogs/${detailID}`);
+    const dog = result.data;
+    dispatch({ type: DETAILS, payload: dog });
+  };
 }
-export function orderByWeight(value){
-  return{
+
+export function searchRace(value) {
+  return {
+    type: SEARCH_RACE,
+    payload: value,
+  };
+}
+
+export function searchTemperament(value) {
+  return {
+    type: SEARCH_TEMPERAMENT,
+    payload: value,
+  };
+}
+
+export function filterByRace(value) {
+  return {
+    type: FILTER_BY_RACE,
+    payload: value,
+  };
+}
+export function filterByTemperament(value) {
+  return {
+    type: FILTER_BY_TEMPERAMENT,
+    payload: value,
+  };
+}
+export function orderByAlphabet(value) {
+  return {
+    type: ORDER_BY_ALPHABET,
+    payload: value,
+  };
+}
+export function orderByWeight(value) {
+  return {
     type: ORDER_BY_WEIGHT,
-    payload:value
-  }
+    payload: value,
+  };
 }
 export function postDog(dog) {
   return function (dispatch) {
@@ -52,12 +91,7 @@ export function getAllDogs() {
 export function getByRace(race) {
   return async function (dispatch) {
     const result = await axios.get(`http://localhost:3001/dogs?name=${race}`);
-    const data = result.data
-    //.sort((a, b) => {
-    //   if (a.name < b.name) return -1;
-    //   if (a.name > b.name) return 1;
-    //   return 0;
-    // });
+    const data = result.data;
     dispatch({
       type: GET_BY_RACE,
       payload: data,

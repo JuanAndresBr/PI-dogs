@@ -30,18 +30,6 @@ const GetDogs = async function (req, res) {
       })
       const temperaments =result.dataValues.temperaments.map((e)=>e.dataValues.nombre)
       const text = temperaments.join(", ")
-      // let result = await racetemperament.findAll({
-      //   where: { raceId: resultBD[i].dataValues.id },
-      // });
-      // result = result.map((e) => {
-      //   return { id: e.dataValues.temperamentId };
-      // });
-
-      // const temperaments = await Temperament.findAll({
-      //   where: { [Op.or]: result },
-      // });
-      // let temperament = temperaments.map((e) => e.dataValues.nombre);
-      // const text = temperament.join(", ");
       dogs.push({
         id: resultBD[i].dataValues.id,
         name: resultBD[i].dataValues.name,

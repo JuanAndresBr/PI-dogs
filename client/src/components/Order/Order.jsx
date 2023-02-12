@@ -1,15 +1,18 @@
-import styles from "./Filters.module.css";
+import styles from "./Order.module.css";
 
 
-export default function Filters(props) {
-  const {filters}= props
+export default function Order(props) {
+  const {orders}= props
   function handleClick(e) {
     e.preventDefault()
-    filters(e.target.name, e.target.value)
+    orders(e.target.name, e.target.value)
   }
   return (
     <div className={styles.container}>
-      <span>Alfabeticamente</span>
+      <h2>Order by</h2>
+      <hr/>
+
+      <span>Alphabetically</span>
       <select name="Alphabetic" onClick={handleClick} defaultValue={"DEFAULT"}>
         <option disabled value={"DEFAULT"}>
           Select order
@@ -17,7 +20,7 @@ export default function Filters(props) {
         <option value="Ascendent">Ascendente</option>
         <option value="Descendent">Descendente</option>
       </select>
-      <span>Peso</span>
+      <span>In weight order</span>
       <select name="Weight" onClick={handleClick} defaultValue={"DEFAULT"}>
         <option disabled value={"DEFAULT"}>
           Select order
