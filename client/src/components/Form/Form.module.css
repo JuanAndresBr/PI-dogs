@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 3%;
+  width: 100%;
   color: #503101;
 }
 
@@ -10,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 .temperaments button{
   cursor: pointer;
@@ -32,7 +34,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 900px;
+  width: 70%;
 }
 input {
   width: 300px;
@@ -79,6 +81,7 @@ input:focus {
   border-radius: 5px;
   background-color: #ffdf0f;
 }
+
 .button:hover{
   background-color: #ffba4b;
   font-weight: bold;
@@ -88,9 +91,11 @@ a{
   color: black;
 }
 .select{
+  display: flex;
   margin-right: 20px;
   margin-top: 20px;
-  width: 200px;
+  flex-wrap: wrap;
+  width: 21%;
   height: 40px;
   border-radius: 5px;
   outline: none;
@@ -134,4 +139,73 @@ hr{
   height: 1px;
   width:80%;
   background-color: rgb(138, 63, 1);
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 20%;
+  margin-top: 20px;
+  background-color:rgb(255, 237, 214);
+  border-radius: 10px;
+  scroll-snap-align: start;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  border: 2px solid white;
+  padding: 10px;
+}
+.section:hover{
+  border: 2px solid rgb(184, 184, 184);
+}
+.section:hover {
+  border: 2px solid rgb(200, 169, 54);
+}
+
+.section input[type="checkbox"] {
+  width: 15px;
+  margin-right: 5px;
+  cursor: pointer;
+
+}
+.section div{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.section span {
+  font-size: 15px;
+  margin-left: 5px;
+}
+.section::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width:15px;
+  background-color:  rgba(252, 182, 53, 0.5);
+  border-radius: 10px;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background-color: #f18b37;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+  height: 30px;
+}
+.back{
+  align-items: flex-start;
+  width: 100%;
+  margin-left: 50px;
+}
+.back button{
+  background-color: rgba(250, 170, 78) ;
+  border: 0px;
+  border-radius: 100px;
+  width: 60px;
+  height: 50px;
+  margin-right: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.5s ease;
+}
+.back button:hover{
+  background-color: #ffe4b8;
+  font-weight: bold;
 }

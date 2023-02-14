@@ -19,18 +19,18 @@ const GetTemperaments = async function (req, res) {
       temperaments = temperaments.filter(
         (e, i) => temperaments.indexOf(e) === i
       );
-      temperaments= temperaments.map((e,i)=>{return {id:i, nombre: e}})
+      temperaments= temperaments.map((e,i)=>{return {id:i, name: e}})
       temperaments.forEach((e) => {
         Temperament.create({
           id: e.id,
-          nombre: e.nombre,
+          name: e.name,
         });
       });
     } else {
       dataBD.forEach((temperament) => {
         temperaments.push({
           id: temperament.dataValues.id,
-          nombre: temperament.dataValues.nombre,
+          name: temperament.dataValues.name,
         });
       });
     }

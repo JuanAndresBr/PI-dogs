@@ -1,4 +1,4 @@
-export function validarInputs(inputs){
+export function validarInputs(inputs, dogTemperaments){
   var errors={};
   if(!inputs.name){
     errors.name="Please enter a value"
@@ -14,29 +14,8 @@ export function validarInputs(inputs){
     errors.life="Please enter both values"
   }else if(parseInt(inputs.minLife)>parseInt(inputs.maxLife)){
     errors.life="Min life span must be less than max life span"
+  }else if(dogTemperaments.length===0){
+    errors.temperaments="Please select a temperament"
   }
   return errors
 }
-export function validarTemperaments(dogTemperaments){
-  var errors="";
-  if(dogTemperaments.length===0){
-    errors="ingrese"
-  }else{
-
-    console.log(dogTemperaments)
-    dogTemperaments.forEach(e => {
-        if(e==="DEFAULT"){
-  
-          errors="Please click on a temperament"
-        }
-    });
-  }
-  return errors
-}
-/*name: "",
-    minHeight: "",
-    maxHeight: "",
-    minWeight: "",
-    maxWeight: "",
-    minLife: "",
-    maxLife: "", */

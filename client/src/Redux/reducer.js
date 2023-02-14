@@ -1,39 +1,40 @@
 import {
   GET_ALL_DOGS,
-  GET_BY_RACE,
+  GET_BY_BREED,
   GET_TEMPERAMENTS,
   ORDER_BY_ALPHABET,
   ORDER_BY_WEIGHT,
   FILTER_BY_RACE,
   FILTER_BY_TEMPERAMENT,
   SEARCH_TEMPERAMENT,
-  SEARCH_RACE,
+  SEARCH_BREED,
   DETAILS,
+  FILTER_BY_BREED,
 } from "./action_type";
 const initialState = {
   allDogs: [],
   dogs: [],
   temperaments: [],
   allTemperaments: [],
-  races: [],
+  breeds: [],
   dogDetails: {},
 };
 export default function rootReducer(state = initialState, { type, payload }) {
   switch (type) {
     case DETAILS:
       return { ...state, dogDetails: payload };
-    case SEARCH_RACE:
-      if (payload === "") return { ...state, races: state.allDogs };
-      const race = state.allDogs.filter((e) =>
+    case SEARCH_BREED:
+      if (payload === "") return { ...state, breeds: state.allDogs };
+      const breed = state.allDogs.filter((e) =>
         e.name.toLowerCase().includes(payload.toLowerCase())
       );
-      return { ...state, races: race };
+      return { ...state, breeds: breed };
     case SEARCH_TEMPERAMENT:
       if (payload === "") {
         return { ...state, temperaments: state.allTemperaments };
       }
       const temp = state.allTemperaments.filter((e) =>
-        e.nombre.toLowerCase().includes(payload.toLowerCase())
+        e.name.toLowerCase().includes(payload.toLowerCase())
       );
       return { ...state, temperaments: temp };
     case FILTER_BY_TEMPERAMENT:
@@ -60,20 +61,20 @@ export default function rootReducer(state = initialState, { type, payload }) {
         (e, i) => filterTemperament.indexOf(e) === i
       );
       return { ...state, dogs: filterTemperament };
-    case FILTER_BY_RACE:
+    case FILTER_BY_BREED:
       if (payload.length === 0) {
         return { ...state, dogs: state.allDogs };
       }
-      const filterRace = state.allDogs.filter((e) => payload.includes(e.name));
-      return { ...state, dogs: filterRace };
+      const filterBreed = state.allDogs.filter((e) => payload.includes(e.name));
+      return { ...state, dogs: filterBreed };
     case GET_ALL_DOGS:
-      return { ...state, allDogs: payload, dogs: payload, races: payload };
-    case GET_BY_RACE:
+      return { ...state, allDogs: payload, dogs: payload, breeds: payload };
+    case GET_BY_BREED:
       return { ...state, dogs: payload };
     case GET_TEMPERAMENTS:
       return { ...state, allTemperaments: payload, temperaments: payload };
     case ORDER_BY_ALPHABET:
-      const copy = [...state.allDogs];
+      const copy = [...state.dogs];
       const ordered = copy.sort((a, b) => {
         if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
         if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
@@ -85,7 +86,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
         return { ...state, dogs: ordered.reverse() };
       }
     case ORDER_BY_WEIGHT: {
-      const copy = [...state.allDogs];
+      const copy = [...state.dogs];
       const ordered = copy.sort((a, b) => {
         const weightA = a.weight.split(" - ");
         const valueA = (Number(weightA[0]) + Number(weightA[1])) / 2;

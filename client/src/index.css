@@ -5,12 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url("./img/fondo.jpg");
-  background-size : cover;
-   */
 
 }
+body::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width:15px;
+  background-color:  rgba(252, 208, 127, 0.5);
+  border-radius: 10px;
+}
 
+body::-webkit-scrollbar-thumb {
+  background-color: #9b6d47;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

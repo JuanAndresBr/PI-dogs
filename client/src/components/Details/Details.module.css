@@ -6,6 +6,7 @@
     opacity: 1;
   }
 }
+
 .box {
   display: flex;
   flex-direction: column;
@@ -29,7 +30,7 @@ div .container{
   align-items: center;
   align-self: center;
   justify-content: center;
-  width: 1000px;
+  width: 80%;
   margin: 30px 200px 80px 200px;
   background-color: rgb(247, 212, 172, 0.9);
   border-radius: 20px;
@@ -55,4 +56,24 @@ div .container{
 .container img:hover{
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
+}
+.button{
+  align-items: flex-start;
+  width: 100%;
+  margin-left: 50px;
+}
+.button button{
+  background-color: rgba(250, 170, 78) ;
+  border: 0px;
+  border-radius: 100px;
+  width: 60px;
+  height: 50px;
+  margin-right: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.5s ease;
+}
+.button button:hover{
+  background-color: #ffe4b8;
+  font-weight: bold;
 }

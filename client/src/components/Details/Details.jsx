@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { details } from "../../Redux/actions";
 import img from "../../img/dog.png";
+import { Link } from "react-router-dom";
 
 export default function Details(props) {
   const dispatch = useDispatch();
@@ -15,6 +16,12 @@ export default function Details(props) {
   }, [detailID]);
   return (
     <div className={styles.box}>
+      <div className={styles.button}>
+      <Link to="/home">
+        <button>🡰</button>
+      </Link>
+
+      </div>
       <h1>{race.name} details</h1>
       <hr />
       <div className={styles.container}>

@@ -1,4 +1,4 @@
-const { Race, Temperament, racetemperament } = require("../db");
+const { Breed} = require("../db");
 const axios = require("axios");
 const PostDog = async function (req, res) {
   const { name, height, weight, life_span, temperaments } = req.body;
@@ -7,7 +7,7 @@ const PostDog = async function (req, res) {
     const index = dogs.data.length;
     const id = dogs.data[index - 1].id + 1;
     if (name || height || weight || life_span || temperaments) {
-      const newRace = await Race.create(
+      const newBreed = await Breed.create(
         {
           id,
           name,
@@ -16,10 +16,10 @@ const PostDog = async function (req, res) {
           life_span,
         }
       );
-      newRace.setTemperaments(temperaments)
-      res.status(201).json(newRace);
+      newBreed.setTemperaments(temperaments)
+      res.status(201).json(newBreed);
     } else {
-      res.status(500).json("Falta algún dato");
+      res.status(500).json("data is missing");
     }
   } catch (e) {
     res.status(500).json(e.message);

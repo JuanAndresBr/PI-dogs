@@ -1,23 +1,24 @@
 import styles from "./Filter.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState, useEffect } from "react";
-import { searchTemperament, searchRace } from "../../Redux/actions";
+import React, { useState } from "react";
+import { searchTemperament, searchBreed } from "../../Redux/actions";
 
 export default function Order(props) {
   const { filters } = props;
   const dispatch = useDispatch();
   const temperaments = useSelector((s) => s.temperaments);
-  const races = useSelector((s) => s.races);
+  const breeds = useSelector((s) => s.breeds);
   const [checksTemperaments, setChecksTemperaments] = useState([]);
-  const [checksRaces, setChecksRaces] = useState([]);
-  // const [searchTemp, setSearchTemp] = useState("");
+  const [checksBreeds, setChecksBreeds] = useState([]);
 
   function handleSearchTemp(e) {
     dispatch(searchTemperament(e.target.value));
   }
+
   function handleSearchRace(e) {
-    dispatch(searchRace(e.target.value));
+    dispatch(searchBreed(e.target.value));
   }
+
   function handleChecksTemperaments(e) {
     var updateList = [...checksTemperaments];
     if (e.target.checked) {
@@ -28,78 +29,56 @@ export default function Order(props) {
     setChecksTemperaments(updateList);
     filters("Temperaments", updateList);
   }
-  function handleChecksRaces(e) {
-    var updateList = [...checksRaces];
+
+  function handleChecksBreeds(e) {
+    var updateList = [...checksBreeds];
     if (e.target.checked) {
-      updateList = [...checksRaces, e.target.value];
+      updateList = [...checksBreeds, e.target.value];
     } else {
-      updateList.splice(checksRaces.indexOf(e.target.value), 1);
+      updateList.splice(checksBreeds.indexOf(e.target.value), 1);
     }
-    setChecksRaces(updateList);
-    filters("Races", updateList);
+    setChecksBreeds(updateList);
+    filters("Breeds", updateList);
+  }
+
+  function handleReset(e) {
+    if (e.target.name === "temperament") {
+      setChecksTemperaments([]);
+      filters("Temperaments", []);
+    } else if (e.target.name === "breed") {
+      setChecksBreeds([]);
+      filters("Breeds", []);
+    }
   }
 
   return (
     <div className={styles.container}>
+      
       <h2>Filters</h2>
       <hr />
       <span>Temperaments</span>
       <section className={styles.section}>
-        <input
-          className={styles.searchTemp}
-          placeholder="search temperament"
-          type="search"
-          onChange={handleSearchTemp}
-        ></input>
+        <div>
+          <input
+            className={styles.searchTemp}
+            placeholder="Search temperaments"
+            type="search"
+            onChange={handleSearchTemp}
+          ></input>
+          <button className={styles.reset} name={"temperament"} onClick={handleReset}>
+            ⭯
+          </button>
+        </div>
         <section>
           {temperaments.map((e) => {
-            if (checksTemperaments.find((t) => t === e.nombre)) {
+            if (checksTemperaments.find((t) => t === e.name)) {
               return (
-                <div>
+                <div key={e.id}>
                   <input
                     onChange={handleChecksTemperaments}
-                    value={e.nombre}
-                    key={e.id}
-                    type="checkbox"
-                    checked
-                  ></input>
-                  <span>{e.nombre}</span>
-                </div>
-              );
-            } else {
-              return (
-                <div>
-                  <input
-                    onChange={handleChecksTemperaments}
-                    value={e.nombre}
-                    key={e.id}
-                    type="checkbox"
-                  ></input>
-                  <span>{e.nombre}</span>
-                </div>
-              );
-            }
-          })}
-        </section>
-      </section>
-      <span>Races</span>
-      <section className={styles.section}>
-        <input
-          className={styles.searchTemp}
-          placeholder="search race"
-          type="search"
-          onChange={handleSearchRace}
-        />
-        <section>
-          {races.map((e) => {
-            if (checksRaces.find((t) => t === e.name)) {
-              return (
-                <div>
-                  <input
-                    key={e.id}
-                    type="checkbox"
                     value={e.name}
-                    onChange={handleChecksRaces}
+                    key={e.id}
+                    type="checkbox"
                     checked
                   ></input>
                   <span>{e.name}</span>
@@ -107,12 +86,56 @@ export default function Order(props) {
               );
             } else {
               return (
-                <div>
+                <div key={e.id}>
+                  <input
+                    onChange={handleChecksTemperaments}
+                    value={e.name}
+                    key={e.id}
+                    type="checkbox"
+                  ></input>
+                  <span>{e.name}</span>
+                </div>
+              );
+            }
+          })}
+        </section>
+      </section>
+      <span>Breeds</span>
+      <section className={styles.section}>
+        <div>
+          <input
+            className={styles.searchTemp}
+            placeholder="search breed"
+            type="Search"
+            onChange={handleSearchRace}
+          />
+          <button className={styles.reset}  name={"breed"} onClick={handleReset}>
+            ⭯
+          </button>
+        </div>
+        <section>
+          {breeds.map((e) => {
+            if (checksBreeds.find((t) => t === e.name)) {
+              return (
+                <div key={e.id}>
                   <input
                     key={e.id}
                     type="checkbox"
                     value={e.name}
-                    onChange={handleChecksRaces}
+                    onChange={handleChecksBreeds}
+                    checked
+                  ></input>
+                  <span>{e.name}</span>
+                </div>
+              );
+            } else {
+              return (
+                <div key={e.id}>
+                  <input
+                    key={e.id}
+                    type="checkbox"
+                    value={e.name}
+                    onChange={handleChecksBreeds}
                   ></input>
                   <span>{e.name}</span>
                 </div>

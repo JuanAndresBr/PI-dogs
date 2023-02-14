@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import img from "../../img/dog.png"
 
 export default function Card(props) {
-  const { id,name, image, temperament, weight } = props;
+  const { id,name, image, temperament, weight} = props;
   return (
     <div className={styles.container}>
       <Link className={styles.card} to={`/details/${id}`}>

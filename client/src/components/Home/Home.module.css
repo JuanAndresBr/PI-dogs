@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  
 }
 
 .box {
@@ -15,3 +14,4 @@ hr {
   width: 90%;
   background-color: rgb(138, 63, 1);
 }
+

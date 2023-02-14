@@ -1,26 +1,28 @@
 import styles from "./Pagination.module.css";
 import React, { useState, useEffect } from "react";
 
-export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
+export default function Pagination({
+  dogsPerPage,
+  totalDogs,
+  paginate,
+  currentPage,
+  allDogs
+}) {
   const pageNumbers = [];
-  const [numPage, setNumPage] = useState(1);
+  const [numPage, setNumPage] = useState(currentPage);
   const [input, setInput] = useState(numPage);
 
   for (let i = 1; i <= Math.ceil(totalDogs / dogsPerPage); i++) {
     pageNumbers.push(i);
   }
-  // useEffect(() => {
-  //   setInput(1);
-  //   setNumPage(1);
-  //   paginate(1);
-  // }, [totalDogs]);
+
   const handleInputChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (e.target.value >= 0 && e.target.value <= pageNumbers.length) {
       setInput(e.target.value);
       setNumPage(e.target.value);
       paginate(e.target.value);
-    } else  {
+    } else {
       setInput(1);
       setNumPage(1);
       paginate(1);
@@ -33,23 +35,29 @@ export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
       setNumPage(num);
       setInput(num);
       paginate(num);
-    }else{
+    } else {
       setNumPage(pageNumbers.length);
       setInput(pageNumbers.length);
       paginate(pageNumbers.length);
     }
   }
   function handleForward() {
-    if (Number(numPage) + 1 <=pageNumbers.length) {
+    if (Number(numPage) + 1 <= pageNumbers.length) {
       const num = Number(numPage) + 1;
       setNumPage(num);
       setInput(num);
       paginate(num);
-    }else{
+    } else {
       setNumPage(1);
       setInput(1);
       paginate(1);
     }
+  }
+  function handleReset() {
+    setNumPage(1);
+    setInput(1);
+    paginate(1);
+    allDogs()
   }
   return (
     <div className={styles.pagination}>
@@ -62,6 +70,7 @@ export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
       ></input>
       <input value={"/" + pageNumbers.length} readOnly></input>
       <p onClick={handleForward}>&raquo;</p>
+      <p onClick={handleReset}>⭯</p>
     </div>
   );
 }

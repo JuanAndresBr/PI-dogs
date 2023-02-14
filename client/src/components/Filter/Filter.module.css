@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   color: #503101;
-  height: 680px;
-  width: 100%;
+  height: auto;
+  width: 160px;
   background-color: rgb(255, 195, 116);
   border-radius: 10px;
   padding: 5px;
@@ -14,21 +13,24 @@
 .section {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  height: 200px;
-  width: 150px;
+  padding: 3%;
+  height: 30px;
+  width: 90%;
   background-color: rgb(255, 237, 214);
   border-radius: 10px;
   scroll-snap-align: start;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: 0.5s ease;
+}
+.section:hover{
+  height: 200px;
 }
 
 .section section {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
 }
-
 
 .container span {
   font-size: 23px;
@@ -44,9 +46,42 @@
 input[type="checkbox"] {
   width: 15px;
   margin: 0px;
+  cursor: pointer;
+
 }
 .searchTemp {
   width: 100%;
   margin: 0px;
   font-size: 12px;
 }
+.section section::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width:15px;
+  background-color: rgb(230, 196, 152);
+  border-radius: 10px;
+}
+
+.section section::-webkit-scrollbar-thumb {
+  background-color: rgb(236, 151, 82);
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+  height: 30px;
+}
+ .reset {
+  cursor: pointer;
+  color: black;
+  float: left;
+  text-decoration: none;
+  background-color: rgb(236, 151, 82);
+  border: 0px;
+  height: 25px;
+  width: 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 2px;
+  transition: 0.5s ease;
+}
+ .reset:hover {
+  background-color: rgb(255, 201, 167);
+}
+

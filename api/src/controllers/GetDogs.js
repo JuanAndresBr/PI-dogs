@@ -1,6 +1,5 @@
 const axios = require("axios");
-const { Sequelize } = require("sequelize");
-const { Race, Op, racetemperament, Temperament } = require("../db");
+const { Breed, Temperament } = require("../db");
 
 const GetDogs = async function (req, res) {
   try {
@@ -8,7 +7,7 @@ const GetDogs = async function (req, res) {
     var dogs = [];
     const resultApi = await axios(`https://api.thedogapi.com/v1/breeds`);
     const dataApi = resultApi.data;
-    const resultBD = await Race.findAll({
+    const resultBD = await Breed.findAll({
       attributes: ["id", "name", "weight", "height", "life_span"],
     });
     dataApi.forEach((dog) => {
@@ -24,12 +23,14 @@ const GetDogs = async function (req, res) {
     });
 
     for (let i = 0; i < resultBD.length; i++) {
-      const result = await Race.findOne({
-        where:{id: resultBD[i].dataValues.id},
-        include:Temperament
-      })
-      const temperaments =result.dataValues.temperaments.map((e)=>e.dataValues.nombre)
-      const text = temperaments.join(", ")
+      const result = await Breed.findOne({
+        where: { id: resultBD[i].dataValues.id },
+        include: Temperament,
+      });
+      const temperaments = result.dataValues.temperaments.map(
+        (e) => e.dataValues.name
+      );
+      const text = temperaments.join(", ");
       dogs.push({
         id: resultBD[i].dataValues.id,
         name: resultBD[i].dataValues.name,
@@ -54,7 +55,6 @@ const GetDogs = async function (req, res) {
       res.status(200).json(dogs);
     }
   } catch (e) {
-    console.log(e)
     res.status(500).json(e);
   }
 };

@@ -7,22 +7,28 @@ import Filter from "../Filter/Filter";
 import React, { useState } from "react";
 
 export default function Home(props) {
-  const { dogs, onSearch, orders, filters } = props;
-  const [currentPage, setcurrentPage] = useState(1);
-  const [dogsPerPage] = useState(8);
-  const indexOfLastDog = currentPage * dogsPerPage;
-  const indexOfFirstDog = indexOfLastDog - dogsPerPage;
-  const currentDogs = dogs.slice(indexOfFirstDog, indexOfLastDog);
-  const paginate = (pageNumber) => setcurrentPage(pageNumber);
+  const {
+    dogs,
+    onSearch,
+    orders,
+    filters,
+    dogsPerPage,
+    currentDogs,
+    paginate,
+    currentPage,
+    allDogs
+  } = props;
 
   return (
     <div className={styles.container}>
       <div className={styles.page}>
-        <SearchBar onSearch={onSearch} />
+        <SearchBar onSearch={onSearch} paginate={paginate} />
         <Pagination
           dogsPerPage={dogsPerPage}
           totalDogs={dogs.length}
           paginate={paginate}
+          currentPage={currentPage}
+          allDogs={allDogs}
         />
         <hr />
       </div>

@@ -2,25 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   color: #503101;
   height: 280px;
-  width: 100%;
+  width: 160px;
   background-color: rgb(255, 195, 116);
   border-radius: 10px;
   padding: 5px;
+
 }
 .container select {
   margin: 12px;
   height: 25px;
-  font-size: 18px;
+  font-size: 14px;
   border: 1px solid rgba(87, 54, 16, 0.9);
   border-radius: 5px;
   transition: 0.5s ease;
-}
-.container select:hover {
-  background-color: rgba(247, 175, 92, 0.9);
+  background-color: rgba(255, 240, 223, 0.9);
 }
 .container span {
-  font-size: 20px;
+  font-size: 18px;
 }

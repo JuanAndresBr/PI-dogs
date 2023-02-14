@@ -1,14 +1,14 @@
 import {
   POST_DOG,
   GET_ALL_DOGS,
-  GET_BY_RACE,
+  GET_BY_BREED,
   GET_TEMPERAMENTS,
   ORDER_BY_ALPHABET,
   ORDER_BY_WEIGHT,
-  FILTER_BY_RACE,
+  FILTER_BY_BREED,
   FILTER_BY_TEMPERAMENT,
   SEARCH_TEMPERAMENT,
-  SEARCH_RACE,
+  SEARCH_BREED,
   DETAILS,
 } from "./action_type";
 import axios from "axios";
@@ -21,9 +21,9 @@ export function details(detailID) {
   };
 }
 
-export function searchRace(value) {
+export function searchBreed(value) {
   return {
-    type: SEARCH_RACE,
+    type: SEARCH_BREED,
     payload: value,
   };
 }
@@ -35,9 +35,9 @@ export function searchTemperament(value) {
   };
 }
 
-export function filterByRace(value) {
+export function filterByBreed(value) {
   return {
-    type: FILTER_BY_RACE,
+    type: FILTER_BY_BREED,
     payload: value,
   };
 }
@@ -88,12 +88,12 @@ export function getAllDogs() {
       });
   };
 }
-export function getByRace(race) {
+export function getByBreed(breed) {
   return async function (dispatch) {
-    const result = await axios.get(`http://localhost:3001/dogs?name=${race}`);
+    const result = await axios.get(`http://localhost:3001/dogs?name=${breed}`);
     const data = result.data;
     dispatch({
-      type: GET_BY_RACE,
+      type: GET_BY_BREED,
       payload: data,
     });
   };

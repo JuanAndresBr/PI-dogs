@@ -8,18 +8,25 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getAllDogs,
-  getByRace,
+  getByBreed,
   getTemperaments,
   orderByAlphabet,
   orderByWeight,
-  filterByRace,
-  filterByTemperament
+  filterByBreed,
+  filterByTemperament,
 } from "./Redux/actions";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
   const dogs = useSelector((s) => s.dogs);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dogsPerPage] = useState(8);
+  const indexOfLastDog = currentPage * dogsPerPage;
+  const indexOfFirstDog = indexOfLastDog - dogsPerPage;
+  const currentDogs = dogs.slice(indexOfFirstDog, indexOfLastDog);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   useEffect(() => {
     dispatch(getTemperaments());
     allDogs();
@@ -30,7 +37,7 @@ function App() {
   }
 
   function onSearch(race) {
-    dispatch(getByRace(race));
+    dispatch(getByBreed(race));
   }
   function orders(name, value) {
     if (name === "Alphabetic") {
@@ -40,10 +47,10 @@ function App() {
     }
   }
   function filters(name, value) {
-    if (name === "Races") {
-      dispatch(filterByRace(value));
-    }else if (name === "Temperaments"){
-      dispatch(filterByTemperament(value))
+    if (name === "Breeds") {
+      dispatch(filterByBreed(value));
+    } else if (name === "Temperaments") {
+      dispatch(filterByTemperament(value));
     }
   }
   return (
@@ -55,10 +62,15 @@ function App() {
           path="/home"
           element={
             <Home
+              currentPage={currentPage}
+              dogsPerPage={dogsPerPage}
+              currentDogs={currentDogs}
+              paginate={paginate}
               onSearch={onSearch}
               dogs={dogs}
               orders={orders}
               filters={filters}
+              allDogs={allDogs}
             />
           }
         />
