@@ -3,7 +3,7 @@ const axios = require("axios");
 const PostDog = async function (req, res) {
   const { name, height, weight, life_span, temperaments } = req.body;
   try {
-    const dogs = await axios.get("http://localhost:3001/dogs");
+    const dogs = await axios.get("https://pi-dogs-production-c065.up.railway.app/dogs");
     const index = dogs.data.length;
     const id = dogs.data[index - 1].id + 1;
     if (name || height || weight || life_span || temperaments) {
