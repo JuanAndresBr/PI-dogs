@@ -34,7 +34,7 @@ export default function Form() {
       updateList.splice(dogTemperaments.indexOf(e.target.value), 1);
     }
     setDogTemperaments(updateList);
-    setErrors(validarInputs(dogData, updateList))
+    setErrors(validarInputs(dogData, updateList));
   }
 
   function handleInputChange(e) {
@@ -72,8 +72,10 @@ export default function Form() {
           minLife: "",
           maxLife: "",
         });
-        setDogTemperaments([])
-        document.querySelectorAll('input[type=checkbox]').forEach( el => el.checked = false );  
+        setDogTemperaments([]);
+        document
+          .querySelectorAll("input[type=checkbox]")
+          .forEach((el) => (el.checked = false));
       } else {
         window.alert("data is missing");
       }
@@ -114,7 +116,7 @@ export default function Form() {
             value={dogData.minHeight}
             placeholder="MIN"
             min="1"
-            max= "200"
+            max="200"
           />
           <input
             onChange={(e) => handleInputChange(e)}
@@ -174,8 +176,11 @@ export default function Form() {
           />
         </div>
       </div>
+      {/* <form name="subida-imagenes" type="POST" enctype="multipart/formdata">
+        <input type="file" name="imagen1" />
+        <input type="submit" name="subir-imagen" value="Enviar imagen" />
+      </form> */}
       <p className={styles.error}>
-        {" "}
         {errors.height || errors.weight || errors.life}
       </p>
       <div className={styles.temperaments}>

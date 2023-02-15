@@ -1,3 +1,11 @@
+@media(max-width:500px){
+  .container{
+    font-size: 10px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -24,7 +32,7 @@
 
 }
 
-div .container{
+.container{
   display: flex;
   background-color: aqua;
   align-items: center;

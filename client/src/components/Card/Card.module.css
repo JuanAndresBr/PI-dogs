@@ -6,6 +6,18 @@
     opacity: 1;
   }
 }
+@media(max-width: 500px){
+  .container{
+    display: none;
+    margin: 0px;
+    width: 2000px;
+  
+  }
+  .card{
+    width: 2000px;
+  }
+
+}
 .container {
   display: flex;
   background-color: rgba(247, 212, 172, 0.9);

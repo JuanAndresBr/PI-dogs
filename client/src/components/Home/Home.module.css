@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   margin: 20px;
+
 }
 hr {
   height: 1px;
@@ -15,3 +16,21 @@ hr {
   background-color: rgb(138, 63, 1);
 }
 
+@media (max-width: 500px) {
+  .container{margin: 0px;}
+  .box{
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+  }
+  .box > .filter{
+    order: 1;
+
+  }
+  .box > .filter{
+    order: 2;
+  }
+  .box > .page {
+    order: 3;
+  }
+
+}

@@ -33,13 +33,13 @@ export default function Home(props) {
         <hr />
       </div>
       <div className={styles.box}>
-        <div>
+        <div className={styles.filters}>
           <Filter filters={filters} />
         </div>
-        <div>
+        <div  className={styles.page} >
           <Page dogs={currentDogs} />
         </div>
-        <div>
+        <div  className={styles.order}>
           <Order orders={orders} />
         </div>
       </div>

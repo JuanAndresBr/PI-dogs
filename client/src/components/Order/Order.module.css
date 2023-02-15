@@ -22,3 +22,9 @@
 .container span {
   font-size: 18px;
 }
+@media (max-width: 500px) {
+
+  .container {
+    height: 310px;
+  }
+}

@@ -1,10 +1,22 @@
+@media (max-width: 500px) {
+  .container  {
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 500px) {
+  
+  .container{
+    background-color: #503101;
+  
+  }
+}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #503101;
   height: auto;
-  width: 160px;
+  width: 180px;
   background-color: rgb(255, 195, 116);
   border-radius: 10px;
   padding: 5px;
