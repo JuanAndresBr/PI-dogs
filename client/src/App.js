@@ -16,6 +16,8 @@ import {
   filterByTemperament,
 } from "./Redux/actions";
 import { Routes, Route, useLocation } from "react-router-dom";
+import axios from  'axios';
+axios.defaults.baseURL="https://pi-dogs-production-c065.up.railway.app"
 
 function App() {
   const dispatch = useDispatch();

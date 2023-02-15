@@ -15,7 +15,7 @@ import axios from "axios";
 
 export function details(detailID) {
   return async function (dispatch) {
-    const result = await axios.get(`http://localhost:3001/dogs/${detailID}`);
+    const result = await axios.get(`/dogs/${detailID}`);
     const dog = result.data;
     dispatch({ type: DETAILS, payload: dog });
   };
@@ -62,7 +62,7 @@ export function orderByWeight(value) {
 export function postDog(dog) {
   return function (dispatch) {
     axios
-      .post("http://localhost:3001/dogs", dog)
+      .post("/dogs", dog)
       .then((res) => res.data)
       .then((data) => {
         dispatch({
@@ -78,7 +78,7 @@ export function postDog(dog) {
 export function getAllDogs() {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/dogs")
+      .get("/dogs")
       .then((res) => res.data)
       .then((data) => {
         dispatch({
@@ -90,7 +90,7 @@ export function getAllDogs() {
 }
 export function getByBreed(breed) {
   return async function (dispatch) {
-    const result = await axios.get(`http://localhost:3001/dogs?name=${breed}`);
+    const result = await axios.get(`/dogs?name=${breed}`);
     const data = result.data;
     dispatch({
       type: GET_BY_BREED,
@@ -100,7 +100,7 @@ export function getByBreed(breed) {
 }
 export function getTemperaments() {
   return async function (dispatch) {
-    const data = await axios.get("http://localhost:3001/temperaments");
+    const data = await axios.get("/temperaments");
     const temperaments = data.data;
     dispatch({
       type: GET_TEMPERAMENTS,
