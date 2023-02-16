@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const axios = require("axios");
-axios.defaults.baseURL = "https://pi-dogs-production-c065.up.railway.app";
+axios.defaults.baseURL = "http://localhost:3001";
 
 require('./db.js');
 

@@ -68,6 +68,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case GET_ALL_DOGS:
       return { ...state, allDogs: payload, dogs: payload, breeds: payload };
     case GET_BY_BREED:
+      
       return { ...state, dogs: payload };
     case GET_TEMPERAMENTS:
       return { ...state, allTemperaments: payload, temperaments: payload };
