@@ -33,7 +33,7 @@ export default function Home(props) {
       </div>
       <div className={styles.box}>
         <div className={styles.filters}>
-          <Filter filters={filters} />
+          <Filter filters={filters} paginate={paginate} />
         </div>
         <div  className={styles.page} >
           <Page dogs={currentDogs} />

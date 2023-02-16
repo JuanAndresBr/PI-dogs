@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { searchTemperament, searchBreed } from "../../Redux/actions";
 
 export default function Filter(props) {
-  const { filters } = props;
+  const { filters, paginate } = props;
   const dispatch = useDispatch();
   const temperaments = useSelector((s) => s.temperaments);
   const breeds = useSelector((s) => s.breeds);
@@ -28,6 +28,7 @@ export default function Filter(props) {
     }
     setChecksTemperaments(updateList);
     filters("Temperaments", updateList);
+    paginate(1)
   }
 
   function handleChecksBreeds(e) {
@@ -39,6 +40,7 @@ export default function Filter(props) {
     }
     setChecksBreeds(updateList);
     filters("Breeds", updateList);
+    paginate(1)
   }
 
   function handleReset(e) {
