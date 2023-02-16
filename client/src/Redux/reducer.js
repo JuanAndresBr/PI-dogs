@@ -4,7 +4,6 @@ import {
   GET_TEMPERAMENTS,
   ORDER_BY_ALPHABET,
   ORDER_BY_WEIGHT,
-  FILTER_BY_RACE,
   FILTER_BY_TEMPERAMENT,
   SEARCH_TEMPERAMENT,
   SEARCH_BREED,
@@ -30,9 +29,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
       );
       return { ...state, breeds: breed };
     case SEARCH_TEMPERAMENT:
-      if (payload === "") {
-        return { ...state, temperaments: state.allTemperaments };
-      }
+      if (payload === "") return { ...state, temperaments: state.allTemperaments };
+      
       const temp = state.allTemperaments.filter((e) =>
         e.name.toLowerCase().includes(payload.toLowerCase())
       );
@@ -85,6 +83,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
       } else if (payload === "Descendent") {
         return { ...state, dogs: ordered.reverse() };
       }
+      return state
     case ORDER_BY_WEIGHT: {
       const copy = [...state.dogs];
       const ordered = copy.sort((a, b) => {
@@ -100,8 +99,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
         return { ...state, dogs: ordered };
       } else if (payload === "Descendent") {
         return { ...state, dogs: ordered.reverse() };
-      }
-    }
+      }}
+      return state
     default:
       return state;
   }

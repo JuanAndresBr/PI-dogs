@@ -6,7 +6,7 @@ import { details } from "../../Redux/actions";
 import img from "../../img/dog.png";
 import { Link } from "react-router-dom";
 
-export default function Details(props) {
+export default function Details() {
   const dispatch = useDispatch();
   const { detailID } = useParams();
   const race = useSelector((s) => s.dogDetails);
@@ -33,8 +33,8 @@ export default function Details(props) {
         </div>
         <img
           className={styles.img}
-          src={race.image ? race.image.url : img}
-          alt={race.name}
+          src={race.image ? race.image : img}
+          alt={race.id}
         ></img>
       </div>
       <hr></hr>

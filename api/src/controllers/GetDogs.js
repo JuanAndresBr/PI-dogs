@@ -8,16 +8,16 @@ const GetDogs = async function (req, res) {
     const resultApi = await axios(`https://api.thedogapi.com/v1/breeds`);
     const dataApi = resultApi.data;
     const resultBD = await Breed.findAll({
-      attributes: ["id", "name", "weight", "height", "life_span"],
+      attributes: ["id", "name", "weight", "height", "life_span", "image"],
     });
     dataApi.forEach((dog) => {
       dogs.push({
         id: dog.id,
         name: dog.name,
         temperament: dog.temperament,
-        image: dog.image,
-        weight: dog.weight.metric,
-        height: dog.height.metric,
+        image: dog.image.url,
+        weight: dog.weight.metric+" kg",
+        height: dog.height.metric+" cm",
         life_span: dog.life_span,
       });
     });
@@ -35,9 +35,9 @@ const GetDogs = async function (req, res) {
         id: resultBD[i].dataValues.id,
         name: resultBD[i].dataValues.name,
         temperament: text,
-        image: null,
-        weight: resultBD[i].dataValues.weight,
-        height: resultBD[i].dataValues.height,
+        image: resultBD[i].dataValues.image,
+        weight: resultBD[i].dataValues.weight+" kg",
+        height: resultBD[i].dataValues.height+ " cm",
         life_span: resultBD[i].dataValues.life_span,
       });
     }

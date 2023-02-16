@@ -2,7 +2,7 @@ import styles from "./SearchBar.module.css";
 import React, { useState } from "react";
 
 export default function SearchBar(props) {
-  const { onSearch, paginate, setCurrentPage } = props;
+  const { onSearch, paginate } = props;
   const [race, setRace] = useState("");
   const handleInputChange = (e) => {
     setRace(e.target.value);

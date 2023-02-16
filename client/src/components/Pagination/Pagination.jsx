@@ -1,12 +1,12 @@
 import styles from "./Pagination.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function Pagination({
   dogsPerPage,
   totalDogs,
   paginate,
   currentPage,
-  allDogs
+  allDogs,
 }) {
   const pageNumbers = [];
   const [numPage, setNumPage] = useState(currentPage);
@@ -57,7 +57,7 @@ export default function Pagination({
     setNumPage(1);
     setInput(1);
     paginate(1);
-    allDogs()
+    allDogs();
   }
   return (
     <div className={styles.pagination}>

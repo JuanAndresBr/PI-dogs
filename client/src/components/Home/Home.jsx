@@ -4,7 +4,6 @@ import Pagination from "../Pagination/Pagination";
 import SearchBar from "../SearchBar/SearchBar";
 import Order from "../Order/Order";
 import Filter from "../Filter/Filter";
-import React, { useState } from "react";
 
 export default function Home(props) {
   const {

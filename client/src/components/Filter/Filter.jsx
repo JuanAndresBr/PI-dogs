@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { searchTemperament, searchBreed } from "../../Redux/actions";
 
-export default function Order(props) {
+export default function Filter(props) {
   const { filters } = props;
   const dispatch = useDispatch();
   const temperaments = useSelector((s) => s.temperaments);

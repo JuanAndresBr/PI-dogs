@@ -1,9 +1,31 @@
 @media (max-width: 500px) {
-  .temperaments .section{
+  .temperaments .section {
     width: 50%;
   }
-  
 }
+.inputImage {
+  display: flex;
+  flex-direction: column;
+}
+.inputImage input {
+  width: 400px;
+  font-size: 17px;
+  font-weight: bold;
+  color: rgb(77, 60, 0);
+  background-color: rgb(255, 237, 214);
+}
+.inputImage img {
+  width: 300px;
+  align-self: center;
+  height: auto;
+  margin: 10px;
+  border-radius: 15px;
+  border: 2px solid white;
+}
+.inputImage img:hover {
+  border: 2px solid rgb(200, 169, 54);
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -13,13 +35,13 @@
   color: #503101;
 }
 
-.temperaments{
+.temperaments {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-.temperaments button{
+.temperaments button {
   cursor: pointer;
   align-self: center;
   width: 150px;
@@ -29,14 +51,14 @@
   border-radius: 5px;
   background-color: #ffdf0f;
 }
-.temperaments button:hover{
+.temperaments button:hover {
   background-color: #ffba4b;
   font-weight: bold;
 }
-.temperaments span{
+.temperaments span {
   align-self: center;
 }
-.temperaments div{
+.temperaments div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -52,18 +74,17 @@ input {
   font-size: 16px;
   border: 2px solid rgb(255, 255, 255);
 }
-span{
+span {
   font-size: 18px;
   font-weight: bold;
-  color:rgb(77, 60, 0) ;
+  color: rgb(77, 60, 0);
 }
-.box{
+.box {
   display: flex;
   flex-direction: column;
   margin: 20px;
-
 }
-.number{
+.number {
   width: 60px;
 }
 input:hover {
@@ -72,11 +93,11 @@ input:hover {
 input:focus {
   border: 2px solid rgb(200, 169, 54);
 }
-.contenedor{
+.contenedor {
   display: flex;
 }
 
-.button{
+.button {
   cursor: pointer;
   align-self: center;
   width: 120px;
@@ -88,15 +109,15 @@ input:focus {
   background-color: #ffdf0f;
 }
 
-.button:hover{
+.button:hover {
   background-color: #ffba4b;
   font-weight: bold;
 }
-a{
+a {
   text-decoration: none;
   color: black;
 }
-.select{
+.select {
   display: flex;
   margin-right: 20px;
   margin-top: 20px;
@@ -109,11 +130,11 @@ a{
   font-size: 16px;
   border: 2px solid rgb(255, 255, 255);
 }
-.select:hover{
+.select:hover {
   border: 2px solid rgb(184, 184, 184);
 }
-.select:focus{
-  border: 2px solid rgb(200, 169, 54); 
+.select:focus {
+  border: 2px solid rgb(200, 169, 54);
 }
 .warning {
   width: 300px;
@@ -135,24 +156,25 @@ a{
   font-size: 16px;
   border: 2px solid rgb(255, 3, 3);
 }
-.error{
+.error {
   font-size: 12px;
-  color: rgb(255,3,3);
+  color: rgb(255, 3, 3);
   margin-left: 10em;
   margin-right: 10em;
+  transition: 0.5s ease;
 }
-hr{
+hr {
   height: 1px;
-  width:80%;
+  width: 80%;
   background-color: rgb(138, 63, 1);
 }
-.section{
+.section {
   display: flex;
   flex-direction: column;
   height: 150px;
   width: 20%;
   margin-top: 20px;
-  background-color:rgb(255, 237, 214);
+  background-color: rgb(255, 237, 214);
   border-radius: 10px;
   scroll-snap-align: start;
   scroll-snap-type: y mandatory;
@@ -160,7 +182,7 @@ hr{
   border: 2px solid white;
   padding: 10px;
 }
-.section:hover{
+.section:hover {
   border: 2px solid rgb(184, 184, 184);
 }
 .section:hover {
@@ -171,9 +193,8 @@ hr{
   width: 15px;
   margin-right: 5px;
   cursor: pointer;
-
 }
-.section div{
+.section div {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -182,10 +203,10 @@ hr{
   font-size: 15px;
   margin-left: 5px;
 }
-.section::-webkit-scrollbar{
+.section::-webkit-scrollbar {
   -webkit-appearance: none;
-  width:15px;
-  background-color:  rgba(252, 182, 53, 0.5);
+  width: 15px;
+  background-color: rgba(252, 182, 53, 0.5);
   border-radius: 10px;
 }
 
@@ -195,23 +216,23 @@ hr{
   border: 2px solid #f1f2f3;
   height: 30px;
 }
-.back{
+.back {
   align-items: flex-start;
   width: 100%;
-  margin-left: 50px;
+
 }
-.back button{
-  background-color: rgba(250, 170, 78) ;
+.back button {
+  background-color: rgba(250, 170, 78);
   border: 0px;
   border-radius: 100px;
   width: 60px;
   height: 50px;
-  margin-right: 50px;
+  margin-left: 50px;
   cursor: pointer;
   font-size: 20px;
   transition: 0.5s ease;
 }
-.back button:hover{
+.back button:hover {
   background-color: #ffe4b8;
   font-weight: bold;
 }
