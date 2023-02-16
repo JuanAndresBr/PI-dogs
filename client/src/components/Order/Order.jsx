@@ -11,7 +11,6 @@ export default function Order(props) {
     <div className={styles.container}>
       <h2>Order by</h2>
       <hr/>
-
       <span>Alphabetically</span>
       <select name="Alphabetic" onClick={handleClick} defaultValue={"DEFAULT"}>
         <option disabled value={"DEFAULT"}>
