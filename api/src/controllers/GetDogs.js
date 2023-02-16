@@ -16,8 +16,8 @@ const GetDogs = async function (req, res) {
         name: dog.name,
         temperament: dog.temperament,
         image: dog.image.url,
-        weight: dog.weight.metric+" kg",
-        height: dog.height.metric+" cm",
+        weight: dog.weight.metric,
+        height: dog.height.metric,
         life_span: dog.life_span,
       });
     });
@@ -36,8 +36,8 @@ const GetDogs = async function (req, res) {
         name: resultBD[i].dataValues.name,
         temperament: text,
         image: resultBD[i].dataValues.image,
-        weight: resultBD[i].dataValues.weight+" kg",
-        height: resultBD[i].dataValues.height+ " cm",
+        weight: resultBD[i].dataValues.weight,
+        height: resultBD[i].dataValues.height,
         life_span: resultBD[i].dataValues.life_span,
       });
     }

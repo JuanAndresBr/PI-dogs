@@ -27,8 +27,8 @@ export default function Details() {
       <div className={styles.container}>
         <div className={styles.texto}>
           <h2>Temperaments: {race.temperament}</h2>
-          <h2>Weight: {race.weight}</h2>
-          <h2>Height: {race.height}</h2>
+          <h2>Weight: {race.weight} kg</h2>
+          <h2>Height: {race.height} cm</h2>
           <h2>Life span: {race.life_span}</h2>
         </div>
         <img

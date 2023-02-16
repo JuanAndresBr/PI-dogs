@@ -10,7 +10,7 @@ export default function Card(props) {
         <h1>{name}</h1>
         <img className={styles.img} src={image ? image : img} alt={name}></img>
         <h2>{temperament}</h2>
-        <h2>Weight: {weight}</h2>
+        <h2>Weight: {weight} kg</h2>
       </Link>
     </div>
   );

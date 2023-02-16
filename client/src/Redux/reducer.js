@@ -29,8 +29,9 @@ export default function rootReducer(state = initialState, { type, payload }) {
       );
       return { ...state, breeds: breed };
     case SEARCH_TEMPERAMENT:
-      if (payload === "") return { ...state, temperaments: state.allTemperaments };
-      
+      if (payload === "")
+        return { ...state, temperaments: state.allTemperaments };
+
       const temp = state.allTemperaments.filter((e) =>
         e.name.toLowerCase().includes(payload.toLowerCase())
       );
@@ -68,7 +69,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case GET_ALL_DOGS:
       return { ...state, allDogs: payload, dogs: payload, breeds: payload };
     case GET_BY_BREED:
-      
       return { ...state, dogs: payload };
     case GET_TEMPERAMENTS:
       return { ...state, allTemperaments: payload, temperaments: payload };
@@ -84,24 +84,28 @@ export default function rootReducer(state = initialState, { type, payload }) {
       } else if (payload === "Descendent") {
         return { ...state, dogs: ordered.reverse() };
       }
-      return state
-    case ORDER_BY_WEIGHT: {
-      const copy = [...state.dogs];
-      const ordered = copy.sort((a, b) => {
+      return state;
+    case ORDER_BY_WEIGHT:
+      const copyWeight = [...state.dogs];
+      const orderedWeight = copyWeight.sort((a, b) => {
         const weightA = a.weight.split(" - ");
-        const valueA = (Number(weightA[0]) + Number(weightA[1])) / 2;
+        const valueA =
+          (Number(weightA[0]) ? Number(weightA[0]) : 0) +
+          (Number(weightA[1]) ? Number(weightA[1]) : 0);
         const weightB = b.weight.split(" - ");
-        const valueB = (Number(weightB[0]) + Number(weightB[1])) / 2;
+        const valueB =
+          (Number(weightB[0]) ? Number(weightB[0]) : 0) +
+          (Number(weightB[1]) ? Number(weightB[1]) : 0);
         if (valueA < valueB) return -1;
         if (valueA > valueB) return 1;
         return 0;
       });
       if (payload === "Ascendent") {
-        return { ...state, dogs: ordered };
+        return { ...state, dogs: orderedWeight };
       } else if (payload === "Descendent") {
-        return { ...state, dogs: ordered.reverse() };
-      }}
-      return state
+        return { ...state, dogs: orderedWeight.reverse() };
+      }
+      return state;
     default:
       return state;
   }

@@ -6,6 +6,7 @@ const routes = require('./routes/index.js');
 const axios = require("axios");
 axios.defaults.baseURL = "https://pi-dogs-production-c065.up.railway.app";
 
+
 require('./db.js');
 
 const server = express();
